@@ -25,13 +25,16 @@
 
 def scope_test():
 	def do_local():
+		# local assignment won't change the spam variable of the enclosing scope.
 		spam = "local spam"
 
 	def do_nonlocal():
+		# nonlocal statement causes the spam variable to be the variable of the nearest enclosing scope.
 		nonlocal spam
 		spam = "nonlocal spam"
 
 	def do_global():
+		# global statement is the outer most scope and is basically the module's namespace.
 		global spam
 		spam = "global spam"
 
